@@ -86,7 +86,7 @@ private class LicenseHandler implements ILicenseHandler {
      *                  105 - License server failure
      *                  108 - User is not authorized in AndroidBozor service
      *                  120 - AndroidBozor application is not installed on device
-     * @return true - Error response will be handled by LicenseChecker
+     * @return true - Errors response will be handled by LicenseChecker
      * false - You should handle error response
      */
     @Override
@@ -125,7 +125,6 @@ private class BillingHandler implements IBillingHandler{
     public void onBillingInitialized() {
         showToast("onBillingInitialized");
         readyToPurchase = true;
-        updateTextViews();
     }
 
     /**
@@ -144,10 +143,13 @@ private class BillingHandler implements IBillingHandler{
      *                  110 - Other errors
      *                  113 - AndroidBozor service not installed
      * @param error
+     * @return true Errors will be handled by BillingProcessor
+     * false - You should handle error response
      */
     @Override
-    public void onBillingError(int errorCode, Throwable error) {
+    public boolean onBillingError(int errorCode, Throwable error) {
         showToast("onBillingError: " + Integer.toString(errorCode));
+        return true;
     }
 
 
@@ -175,7 +177,6 @@ private class BillingHandler implements IBillingHandler{
         showToast("onPurchaseHistoryRestored");
         for (String sku : bp.listOwnedProducts())
             Log.d(LOG_TAG, "Owned Managed Product: " + sku);
-        updateTextViews();
     }
 
     /**
@@ -189,7 +190,6 @@ private class BillingHandler implements IBillingHandler{
         } else {
             showToast(productId + " could not be consumed");
         }
-        updateTextViews();
 
         if (productId.equals(PRODUCT_ID)) {
             //put your logic

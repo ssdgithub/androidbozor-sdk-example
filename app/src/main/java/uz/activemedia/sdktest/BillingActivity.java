@@ -157,8 +157,9 @@ public class BillingActivity extends Activity {
          * @param error
          */
         @Override
-        public void onBillingError(int errorCode, Throwable error) {
+        public boolean onBillingError(int errorCode, Throwable error) {
             showToast("onBillingError: " + Integer.toString(errorCode));
+            return true;
         }
 
 

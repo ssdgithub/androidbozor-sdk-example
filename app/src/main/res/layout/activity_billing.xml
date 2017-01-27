@@ -10,22 +10,6 @@
         android:gravity="center_horizontal"
         tools:context=".MainActivity" >
 
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Test" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Launch Another One"
-            android:layout_gravity="center"
-            android:onClick="onClick"
-            android:id="@+id/launchMoreButton" />
 
         <TextView
             android:layout_marginTop="10dp"
