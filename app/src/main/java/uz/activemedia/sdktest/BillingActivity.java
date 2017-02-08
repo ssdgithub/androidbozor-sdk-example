@@ -154,7 +154,9 @@ public class BillingActivity extends Activity {
          *                  102 - Invalid signature
          *                  110 - Other errors
          *                  113 - AndroidBozor service not installed
-         * @param error
+         * @param error Throwable error
+         * @return true Errors will be handled by BillingProcessor
+         * false - You should handle error response
          */
         @Override
         public boolean onBillingError(int errorCode, Throwable error) {
